@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Tab Virtual Drum</title>
+	</head>
+
+	<body>
+		<h2 align="center">Keyboard Test</h2>
+		<h3 align="center">Work in Progress</h3>
+		<p align = "center">
+			Key Pressed : <span id="kp"></span>
+			<br />
+			Key Code : <span id="kc"></span>
+			<p align="center" id="status">Keyboard Event Status</p>
+		</p>
+		<script>
+			document.onkeydown = function(event) {
+				var key_press = String.fromCharCode(event.keyCode);
+				var key_code = event.keyCode;
+				document.getElementById('kp').innerHTML = key_press;
+				document.getElementById('kc').innerHTML = key_code;
+				var status = document.getElementById('status');
+				status.innerHTML = "DOWN Event Fired For : "+key_press;
+
+				if(key_press == "Z" || key_press == "X"){
+					playBass();
+				}
+				if(key_press == "C" || key_press == "V"){
+					playSnare();
+				}
+				if(key_press == "N" || key_press == "M"){
+					playRide();
+				}
+				if(key_press == "" || key_press == "A"){
+					playLowHat();
+				}
+				if(key_press == "S" || key_press == "D"){
+					playHiHat();
+				}
+				if(key_press == "F" || key_press == "G"){
+					playTom1();
+				}
+				if(key_press == "H" || key_press == "J"){
+					playTom2();
+				}
+				if(key_press == "K" || key_press == "L"){
+					playTom3();
+				}
+				if(key_press == "B"){
+					playCowbell();
+				}
+				if(key_press == "E" || key_press == "R"){
+					playCrash1();
+				}
+				if(key_press == "T" || key_press == "Y"){
+					playCrash2();
+				}
+				if(key_press == "U" || key_press == "I"){
+					playCrash3();
+				}
+				if(key_press == "Q" || key_press == "W"){
+					playSplash();
+				}
+				if(key_press == "O" || key_press == "P"){
+					playChina();
+				}
+				if(key_press == "1"){
+					playCrashShading(1);
+				}
+				if(key_press == "2"){
+					playCrashShading(0.8);
+				}
+				if(key_press == "3"){
+					playCrashShading(0.6);
+				}
+				if(key_press == "4"){
+					playCrashShading(0.4);
+				}
+				if(key_press == "5"){
+					playCrashShading(0.2);
+				}
+				if(key_press == "6"){
+					playSnareRoll(0.2);
+				}
+				if(key_press == "7"){
+					playSnareRoll(0.3);
+				}
+				if(key_press == "8"){
+					playSnareRoll(0.4);
+				}
+				if(key_press == "9"){
+					playSnareRoll(0.6);
+				}
+				if(key_press == "0"){
+					playSnareRoll(0.8);
+				}
+			}
+			document.onkeyup = function(event){
+				var key_press = String.fromCharCode(event.keyCode);
+				var status = document.getElementById('status');
+				status.innerHTML = "UP Event Fired For : "+key_press;
+			}
+
+			//Play Instrument Function
+			function playBass(){
+				var audio = new Audio('sfx/kick/kick15.ogg');
+				audio.play();
+			}
+
+			function playSnare(){
+				var audio = new Audio('sfx/snare/snare6.ogg');
+				audio.play();
+			}
+
+			function playRide(){
+				var audio = new Audio('sfx/ride/ride1.ogg');
+				audio.play();
+			}
+
+			function playHat(){
+				var audio = new Audio('sfx/hi_hat/hi_hat.ogg');
+				audio.volume = 0.2;
+				audio.play();
+			}
+
+			function playHiHat(){
+				var audio = new Audio('sfx/hi_hat_open/hi_hat_open.ogg');
+				audio.volume = 0.7;
+				audio.play();
+			}
+
+			function playLowHat(){
+				var audio = new Audio('sfx/hi_hat/hi_hat.ogg');
+				audio.play();
+			}
+			function playTom1(){
+				var audio = new Audio('sfx/tom1/tom1_1.ogg');
+				audio.play();
+			}
+			function playTom2(){
+				var audio = new Audio('sfx/tom2/tom2_1.ogg');
+				audio.play();
+			}
+			function playTom3(){
+				var audio = new Audio('sfx/tom3/tom3_1.ogg');
+				audio.play();
+			}
+			function playCowbell(){
+				var audio = new Audio('sfx/cowbell/cowbell.ogg');
+				audio.play();
+			}
+			function playCrash1(){
+				var audio = new Audio('sfx/crash1/crash1_1.ogg');
+				audio.volume = 0.6;
+				audio.play();
+			}
+			function playCrash2(){
+				var audio = new Audio('sfx/crash2/crash2_1.ogg');
+				audio.volume = 0.6;
+				audio.play();
+			}
+			function playCrash3(){
+				var audio = new Audio('sfx/crash3/crash3_1.ogg');
+				audio.volume = 0.6;
+				audio.play();
+			}
+			function playSplash(){
+				var audio = new Audio('sfx/splash/splash.ogg');
+				audio.play();
+			}
+			function playChina(){
+				var audio = new Audio('sfx/china/china.ogg');
+				audio.play();
+			}
+			function playCrashShading(vol){
+				var audio = new Audio('sfx/crash_shading/crash_shading.ogg');
+				audio.volume = vol;
+				audio.play();
+			}
+			function playSnareRoll(vol){
+				var audio = new Audio('sfx/snare/snare7.ogg');
+				audio.volume = vol;
+				audio.play();
+			}
+		</script>
+	</body>
+
+</html>
